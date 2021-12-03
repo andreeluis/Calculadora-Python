@@ -1,16 +1,14 @@
-import func
+import calculadora
 
-print('-*-'*10)
-print('-*- CALCULADORA EM PYTHON *-*-')
 
-while True:
-    termo1 = float(input('Digite o primeiro termo: '))
-    operacao = str(input('Qual operação? ( + , - , x , / ) '))
-    termo2 = float(input('Digite o segundo termo: '))
-    
-    func.getOperacao(operacao, termo1, termo2)
+print('-*-'*12)
+print('BEM VINDO A CALCULADORA MULTITOOLS')
+print('-*-'*12)
 
-    continuar = str(input('Mais algum cálculo? ( S / N )'))
+modo = str(input('Você quer usar qual modo? [Gráfica/Comando] '))
 
-    if continuar in 'nN':
-        break
+if modo in "gG":
+    print('teste')
+
+elif modo in "cC":
+    calculadora.calcComando()
