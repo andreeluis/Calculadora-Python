@@ -1,4 +1,4 @@
-def calcComando():
+def calc_comando():
     import funccalc
 
     print('-*-'*10)
@@ -9,7 +9,7 @@ def calcComando():
         operacao = str(input('Qual operação? ( + , - , x , / ) ')).strip()[0]
         termo2 = float(input('Digite o segundo termo: '))
         
-        funccalc.getOperacao(operacao, termo1, termo2)
+        print(funccalc.get_operacao(operacao, termo1, termo2))
 
         continuar = str(input('Mais algum cálculo? ( S / N )'))
 

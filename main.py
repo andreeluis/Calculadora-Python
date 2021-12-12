@@ -1,4 +1,4 @@
-import calculadora
+import calccmd
 
 
 print('-*-'*12)
@@ -8,7 +8,7 @@ print('-*-'*12)
 modo = str(input('Você quer usar qual modo? [Gráfica/Comando] '))
 
 if modo in "gG":
-    print('teste')
+    pass
 
 elif modo in "cC":
-    calculadora.calcComando()
+    calccmd.calc_comando()
