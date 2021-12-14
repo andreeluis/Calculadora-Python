@@ -5,41 +5,43 @@ import funccalc
 
 class Grafica:
     def __init__(self):
-        root = Tk()
-        janela = ttk.Frame(root,padding=30)
-        janela.grid()
-        ttk.Label(janela, text='CALCULADORA').grid(column=0, row=0, columnspan=4)
-        ttk.Separator(janela, orient='horizontal').grid(row=1, columnspan=4, sticky='ew')
+        self.janela = Tk()
+        self.janela.title('CALCULADORA')
+        self.janela.geometry('320x300')
 
-        Label(janela, text='oi').grid(column=0, columnspan=4, row=2)
+        self.display = StringVar()
 
-        ttk.Separator(janela, orient='horizontal').grid(row=3, columnspan=4, sticky='ew')
+        Label(self.janela, textvariable= self.display).grid(column=0, row=0, columnspan=4)
 
-        ttk.Button(janela, text='9', command= lambda:funccalc.press_button(9)).grid(column=2, row=4)
-        ttk.Button(janela, text='8', command= lambda:funccalc.press_button(8)).grid(column=1, row=4)
-        ttk.Button(janela, text='7', command= lambda:funccalc.press_button(7)).grid(column=0, row=4)
 
-        ttk.Button(janela, text='6', command= lambda:funccalc.press_button(6)).grid(column=2, row=5)
-        ttk.Button(janela, text='5', command= lambda:funccalc.press_button(5)).grid(column=1, row=5)
-        ttk.Button(janela, text='4', command= lambda:funccalc.press_button(4)).grid(column=0, row=5)
+        ttk.Button(self.janela, text='9', command= lambda:funccalc.press_button(9)).grid(column=2, row=2)
+        ttk.Button(self.janela, text='8', command= lambda:funccalc.press_button(8)).grid(column=1, row=2)
+        ttk.Button(self.janela, text='7', command= lambda:funccalc.press_button(7)).grid(column=0, row=2)
 
-        ttk.Button(janela, text='3', command= lambda:funccalc.press_button(3)).grid(column=2, row=6)
-        ttk.Button(janela, text='2', command= lambda:funccalc.press_button(2)).grid(column=1, row=6)
-        ttk.Button(janela, text='1', command= lambda:funccalc.press_button(1)).grid(column=0, row=6)
+        ttk.Button(self.janela, text='6', command= lambda:funccalc.press_button(6)).grid(column=2, row=3)
+        ttk.Button(self.janela, text='5', command= lambda:funccalc.press_button(5)).grid(column=1, row=3)
+        ttk.Button(self.janela, text='4', command= lambda:funccalc.press_button(4)).grid(column=0, row=3)
 
-        ttk.Button(janela, text='0', command= lambda:funccalc.press_button('0')).grid(column=1, row=7)
-        ttk.Button(janela, text='.', command= lambda:funccalc.press_button('float')).grid(column=2, row=7)
-        ttk.Button(janela, text='=', command= lambda:funccalc.press_button('equal')).grid(column=3, row=8)
+        ttk.Button(self.janela, text='3', command= lambda:funccalc.press_button(3)).grid(column=2, row=4)
+        ttk.Button(self.janela, text='2', command= lambda:funccalc.press_button(2)).grid(column=1, row=4)
+        ttk.Button(self.janela, text='1', command= lambda:funccalc.press_button(1)).grid(column=0, row=4)
 
-        ttk.Button(janela, text='/', command= lambda:funccalc.press_button('div')).grid(column=3, row=4)
-        ttk.Button(janela, text='x', command= lambda:funccalc.press_button('multi')).grid(column=3, row=5)
-        ttk.Button(janela, text='-', command= lambda:funccalc.press_button('minus')).grid(column=3, row=6)
-        ttk.Button(janela, text='+', command= lambda:funccalc.press_button('plus')).grid(column=3, row=7)
+        ttk.Button(self.janela, text='0', command= lambda:funccalc.press_button('0')).grid(column=1, row=5)
+        ttk.Button(self.janela, text='.', command= lambda:funccalc.press_button('float')).grid(column=2, row=5)
+        ttk.Button(self.janela, text='=', command= lambda:funccalc.press_button('float')).grid(column=2, row=6, columnspan=3, sticky= 'ew')
 
-        ttk.Button(janela, text='FECHAR', command=root.destroy).grid(column=0, row=8, columnspan=3, sticky= 'ew')
+        ttk.Button(self.janela, text='/', command= lambda:funccalc.press_button('div')).grid(column=3, row=2)
+        ttk.Button(self.janela, text='x', command= lambda:funccalc.press_button('multi')).grid(column=3, row=3)
+        ttk.Button(self.janela, text='-', command= lambda:funccalc.press_button('minus')).grid(column=3, row=4)
+        ttk.Button(self.janela, text='+', command= lambda:funccalc.press_button('plus')).grid(column=3, row=5)
 
-        root.mainloop() 
+        ttk.Button(self.janela, text='FECHAR', command=self.janela.destroy).grid(column=0, row=7, columnspan=4, sticky= 'ew')
 
-    def change():
-        pass
-Grafica()
+        
+        self.change_display()
+        self.janela.mainloop() 
+        
+
+    def change_display(self):
+        for c in range(0,1000):
+            self.display.set(c)
