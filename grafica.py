@@ -96,7 +96,6 @@ class Grafica:
         elif op == 'div':
             operation = '/'
 
-
         display = str(num1) + str(operation) + str(num2)
 
         if equal == True:
@@ -104,7 +103,3 @@ class Grafica:
             display = display + '=' + str(resultado)
 
         self.display.set(display)
-
-        
-            
-Grafica()
